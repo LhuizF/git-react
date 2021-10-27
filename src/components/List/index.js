@@ -5,15 +5,16 @@ import { HiArrowRight } from 'react-icons/hi';
 import { ListContainer, Card } from './styled';
 import Border from '../Border';
 
-export default function List({ data }) {
+export default function List({ data, path }) {
     const history = useHistory();
 
     const handleNewUser = async (e, user) => {
         e.preventDefault();
 
-        history.push(`/profile/${user}`);
+        history.push(`/${path}/profile/${user}`);
     };
 
+    console.log(data);
     if (!data) return <></>;
     return (
         <ListContainer>

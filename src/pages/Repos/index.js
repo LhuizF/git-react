@@ -13,7 +13,7 @@ export default function Repos({ match }) {
 
     useEffect(() => {
         async function getRepos() {
-            const { data } = await axios.get(login + '/repos');
+            const { data } = await axios.get(login + '/repos?per_page=100');
             setRepos(data);
         }
         // se na tiver login não faz a requisição
@@ -24,30 +24,36 @@ export default function Repos({ match }) {
     return (
         <>
             <Header data={repos} title={'repositórios'} />
-            {repos.length !== 0
-                ? repos.map((repo, i) => (
-                      <RepoContainer key={i}>
-                          <Border />
-                          <div className="card">
-                              <h3>{repo.full_name}</h3>
-                              <div className="repo-desc">
-                                  <p>{repo.description}</p>
-                              </div>
-                              <div className="repo-stats">
-                                  <div className="repo-star">
-                                      <FiStar size={18} color="#FFCE00" />
-                                      <p>{repo.stargazers_count}</p>
+            <div
+                style={{
+                    marginBottom: '75px'
+                }}
+            >
+                {repos.length !== 0
+                    ? repos.map((repo, i) => (
+                          <RepoContainer key={i}>
+                              <Border />
+                              <div className="card">
+                                  <h3>{repo.full_name}</h3>
+                                  <div className="repo-desc">
+                                      <p>{repo.description}</p>
                                   </div>
+                                  <div className="repo-stats">
+                                      <div className="repo-star">
+                                          <FiStar size={18} color="#FFCE00" />
+                                          <p>{repo.stargazers_count}</p>
+                                      </div>
 
-                                  <div className="repo-lock">
-                                      <FiUnlock size={18} color="#63BF1F" />
-                                      <FiLock size={18} color="#CC042A" />
+                                      <div className="repo-lock">
+                                          <FiUnlock size={18} color="#63BF1F" />
+                                          <FiLock size={18} color="#CC042A" />
+                                      </div>
                                   </div>
                               </div>
-                          </div>
-                      </RepoContainer>
-                  ))
-                : null}
+                          </RepoContainer>
+                      ))
+                    : null}
+            </div>
             <Navbar selected={'repos'} />
         </>
     );

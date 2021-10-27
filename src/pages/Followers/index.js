@@ -11,7 +11,7 @@ export default function Followers({ match }) {
 
     useEffect(() => {
         async function getFollowers() {
-            const { data } = await axios.get(login + '/followers');
+            const { data } = await axios.get(login + '/followers?per_page=100');
             setFollowers(data);
         }
         // se na tiver login não faz a requisição
@@ -22,7 +22,7 @@ export default function Followers({ match }) {
     return (
         <>
             <Header data={followers} title={'Seguidores'} />
-            <List data={followers} />
+            <List data={followers} path="followers" />
             <Navbar selected={'followers'} />
         </>
     );

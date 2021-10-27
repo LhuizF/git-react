@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const ListContainer = styled.div`
+    margin-bottom: 75px;
     .card {
         position: relative;
         display: flex;

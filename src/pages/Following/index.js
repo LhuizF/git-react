@@ -11,7 +11,7 @@ export default function Following({ match }) {
 
     useEffect(() => {
         async function getFollowing() {
-            const { data } = await axios.get(login + '/following');
+            const { data } = await axios.get(login + '/following?per_page=100');
             setFollowing(data);
         }
         // se na tiver login não faz a requisição
@@ -22,7 +22,7 @@ export default function Following({ match }) {
     return (
         <>
             <Header data={following} title={'Seguindo'} />
-            <List data={following} />
+            <List data={following} path="following" />
             <Navbar selected={'following'} />
         </>
     );

@@ -14,7 +14,10 @@ import * as actions from '../../store/user/actions';
 export default function Profile({ match }) {
     const dispatch = useDispatch();
     const history = useHistory();
+
     const login = match.params.profile;
+    const { path } = match.params;
+
     const [profile, setProfile] = useState({});
 
     // profile é o perfil que esta sendo exibido, adquirido pela url
@@ -51,7 +54,7 @@ export default function Profile({ match }) {
                 </Link>
             </MainHeader>
             <ProfileContainer user={profile} />
-            <Navbar selected={'followers'} />
+            <Navbar selected={path} />
         </>
     );
 }

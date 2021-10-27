@@ -18,19 +18,19 @@ export default function Navbar({ selected }) {
                     Home
                 </BottomNav>
             </Link>
-            <Link to={`/repos/${user.login}`}>
+            <Link to={`/${user.login}/repos`}>
                 <BottomNav className="repos" selected={selected}>
                     <FiGithub size={30} />
                     Repos
                 </BottomNav>
             </Link>
-            <Link to={`/followers/${user.login}`}>
+            <Link to={`/${user.login}/followers`}>
                 <BottomNav className="followers" selected={selected}>
                     <HiOutlineUsers size={30} />
                     Seguidores
                 </BottomNav>
             </Link>
-            <Link to={`/following/${user.login}`}>
+            <Link to={`/${user.login}/following`}>
                 <BottomNav className="following" selected={selected}>
                     <HiOutlineUsers size={30} />
                     Seguindo

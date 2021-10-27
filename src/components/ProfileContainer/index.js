@@ -17,19 +17,19 @@ export default function ProfileContainer({ user }) {
 
             <ul className="user-info">
                 <li>
-                    <Link to={`/followers/${user.login}`}>
+                    <Link to={`/${user.login}/followers`}>
                         <p className="user-info-number">{user.followers}</p>
                         <p> Seguidores</p>
                     </Link>
                 </li>
                 <li>
-                    <Link to={`/following/${user.login}`}>
+                    <Link to={`/${user.login}/following`}>
                         <p className="user-info-number">{user.following}</p>
                         <p> Seguindo</p>
                     </Link>
                 </li>
                 <li>
-                    <Link to={`/repos/${user.login}`}>
+                    <Link to={`/${user.login}/repos`}>
                         <p className="user-info-number"> {user.public_repos}</p>
                         <p> Repos</p>
                     </Link>
